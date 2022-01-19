@@ -32,15 +32,13 @@ cat > code.tsx << EOF
  */
 const { widget } = figma
 const { AutoLayout, Text, useSyncedState, useEffect, usePropertyMenu } = widget
-
 function Widget() {
   const [foo, setFoo] = useSyncedState("foo", () => 0)
   const [bar, setBar] = useSyncedState("bar", 0)
   useEffect(() => {
     console.log(foo)
     console.log(bar)
-  })  
-
+  })
   usePropertyMenu(
     [
       {
@@ -68,7 +66,6 @@ function Widget() {
     ],
     ({propertyName, propertyValue}) => {}
   )
-
   return (
     <AutoLayout>
       <Text
@@ -84,7 +81,6 @@ function Widget() {
     </AutoLayout>
   )
 }
-
 widget.register(Widget)
 EOF
 
@@ -95,3 +91,4 @@ npm install ../
 npx tsc --noEmit
 
 popd
+
